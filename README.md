@@ -11,14 +11,16 @@ copy of the app, then configure the UPSTREAM_SERVER and CUSTOM_DOMAIN config var
 
 - Add a credit card, upgrade to a paid dyno (hobby).
 - Enable ACM (Let's Encrypt certificate managed completely by Heroku).
-- Add your custom domain to the new Heroku app and add the related CNAME DNS record.
+- Add your custom domain to the new Heroku app and add the related CNAME DNS record. I highly recommend [DNSimple](https://dnsimple.com/r/811f4af066782e)
 - Wait (for the gerbils).
 - Bingo.
 
 ## Config Variables
 
 * `UPSTREAM_SERVER` - should be https://custom.intercom.help:443
-* `CUSTOM_DOMAIN` - should be your domain (no scheme). Eg. support.yourdomain.com
+* `CUSTOM_DOMAIN` - should be your domain (no scheme) that you set in the Intercom Help Center Settings. Eg. support.yourdomain.com
+
+![help center domain on intercom](https://i.imgur.com/cZFCSsF.jpg)
 
 ## Credits
 
