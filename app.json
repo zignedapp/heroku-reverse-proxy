@@ -12,11 +12,8 @@
 		}
 	],
 	"env": {
-		"UPSTREAM_SERVER": {
-			"description": "URL of upstream server to which all requests should be proxied"
-		},
 		"CUSTOM_DOMAIN": {
-			"description": "The URL the clients connect to"
+			"description": "The URL the clients connect to. This should match your Custom Help Center Domain setting on Intercom."
 		}
 	},
 	"stack": "heroku-16"
