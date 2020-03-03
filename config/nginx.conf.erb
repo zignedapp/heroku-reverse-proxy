@@ -1,33 +1,35 @@
-worker_processes <%= ENV['NGINX_WORKERS'] || 2 %>;
-error_log /dev/stdout info;
-
 daemon off;
+# Heroku dynos have at least 4 cores
+worker_processes <%= ENV['NGINX_WORKERS'] || 4 %>;
+
+error_log /dev/stdout info;
 
 events {
 	use epoll;
 	accept_mutex on;
-	worker_connections 256;
+	worker_connections <%= ENV['NGINX_WORKER_CONNECTIONS'] || 1024 %>;
 }
 
 http {
+	gzip on;
+    	gzip_comp_level 2;
+    	gzip_min_length 512;
+    	server_tokens off;
+
 	log_format l2met 'measure#nginx.service=$request_time request_id=$http_x_request_id';
 	access_log logs/nginx/access.log l2met;
 	error_log logs/nginx/error.log;
 
 	resolver 8.8.8.8;
 	server {
-		listen 443 ssl;
+		listen <%= ENV["PORT"] %>;
 		server_name <%= ENV["CUSTOM_DOMAIN"] %>;
 
 		location / {
 			set $intercom "<%= ENV["UPSTREAM_SERVER"] %>"; 
-			proxy_set_header Host $host;
 			proxy_pass $intercom;
+			proxy_set_header x-forwarded-host $host;
+			proxy_set_header Host $host;
 		}
-
-		# This forces HTTPS but we don't want that, we'll stay on port 80 http
-		# if ($http_x_forwarded_proto != "https") {
-		#   rewrite ^(.*)$ https://$host$1 permanent;
-		# }
 	}
 }
