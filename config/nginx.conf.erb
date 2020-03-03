@@ -16,7 +16,7 @@ http {
 
 	resolver 8.8.8.8;
 	server {
-		listen <%= ENV["PORT"] %> ssl;
+		listen 443 ssl;
 		server_name <%= ENV["CUSTOM_DOMAIN"] %>;
 
 		location / {
