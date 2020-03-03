@@ -14,19 +14,15 @@ http {
 	access_log logs/nginx/access.log l2met;
 	error_log logs/nginx/error.log;
 
-	server_tokens off;
-
 	resolver 8.8.8.8;
 	server {
-		listen <%= ENV["PORT"] %>;
+		listen <%= ENV["PORT"] %> ssl;
 		server_name <%= ENV["CUSTOM_DOMAIN"] %>;
 
 		location / {
 			set $intercom "<%= ENV["UPSTREAM_SERVER"] %>"; 
 			proxy_set_header Host $host;
 			proxy_pass $intercom;
-			proxy_http_version 1.1;
-			proxy_buffering off;
 		}
 
 		# This forces HTTPS but we don't want that, we'll stay on port 80 http
