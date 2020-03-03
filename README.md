@@ -24,5 +24,6 @@ copy of the app, then configure the CUSTOM_DOMAIN config variable.
 
 Updated to heroku-16 stack and recent community build pack for nginx.
 
-Based on [octoberswimmer/heroku-reverse-proxy](https://github.com/octoberswimmer/heroku-reverse-proxy),
-originally forked from [api-proxy-3scale-heroku](https://github.com/Taytay/api-proxy-3scale-heroku).
+Based on [funwhilelost/heroku-reverse-proxy](https://github.com/funwhilelost/heroku-reverse-proxy) who at least had something that wasn't based on cedar.
+
+[![Support via PayPal](https://cdn.rawgit.com/twolfson/paypal-github-button/1.0.0/dist/button.svg)](https://www.paypal.me/kori/)
