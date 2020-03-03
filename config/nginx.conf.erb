@@ -16,6 +16,7 @@ http {
 
 	server_tokens off;
 
+	resolver 8.8.8.8;
 	server {
 		listen <%= ENV["PORT"] %>;
 		server_name <%= ENV["CUSTOM_DOMAIN"] %>;
