@@ -1,20 +1,17 @@
 {
-	"name": "Intercom Reverse Proxy",
-	"description": "Simple Intercom reverse proxy for Heroku",
-	"keywords": [
-		"reverse proxy",
-		"nginx"
-	],
-	"repository": "https://github.com/kfrancis/heroku-reverse-proxy-1",
-	"buildpacks": [
-		{
-			"url": "https://github.com/heroku/heroku-buildpack-nginx"
-		}
-	],
-	"env": {
-		"CUSTOM_DOMAIN": {
-			"description": "The URL the clients connect to. This should match your Custom Help Center Domain setting on Intercom."
-		}
-	},
-	"stack": "heroku-20"
+  "name": "Intercom Reverse Proxy",
+  "description": "Simple Intercom reverse proxy for Heroku",
+  "keywords": ["reverse proxy", "nginx"],
+  "repository": "https://github.com/kfrancis/heroku-reverse-proxy-1",
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-nginx"
+    }
+  ],
+  "env": {
+    "CUSTOM_DOMAIN": {
+      "description": "The URL the clients connect to. This should match your Custom Help Center Domain setting on Intercom."
+    }
+  },
+  "stack": "heroku-24"
 }
